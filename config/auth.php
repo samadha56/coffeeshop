@@ -11,7 +11,7 @@ return [
     | reset "broker" for your application. You may change these values
     | as required, but they're a perfect start for most applications.
     |
-    */
+     */
 
     'defaults' => [
         'guard' => env('AUTH_GUARD', 'web'),
@@ -33,12 +33,16 @@ return [
     |
     | Supported: "session"
     |
-    */
+     */
 
     'guards' => [
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
+        ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
         ],
     ],
 
@@ -57,18 +61,17 @@ return [
     |
     | Supported: "database", "eloquent"
     |
-    */
+     */
 
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\admin::class,
+        ],
     ],
 
     /*
@@ -88,7 +91,7 @@ return [
     | generating more password reset tokens. This prevents the user from
     | quickly generating a very large amount of password reset tokens.
     |
-    */
+     */
 
     'passwords' => [
         'users' => [
@@ -108,7 +111,7 @@ return [
     | window expires and users are asked to re-enter their password via the
     | confirmation screen. By default, the timeout lasts for three hours.
     |
-    */
+     */
 
     'password_timeout' => env('AUTH_PASSWORD_TIMEOUT', 10800),
 
