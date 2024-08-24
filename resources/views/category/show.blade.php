@@ -15,7 +15,7 @@
     </div>
     <div class="content-container d-flex flex-column justify-content-center align-items-center flex-grow-1 p-3">
         @if ($items->isEmpty())
-            <p class="no-items">No items found for this category.</p>
+            <p class="no-items">Coming soon ... ;)</p>
         @else
             @foreach ($items as $item)
                 <div class="item border-bottom border-dark p-2 mb-3 w-100">
