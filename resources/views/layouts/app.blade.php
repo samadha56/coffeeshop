@@ -30,6 +30,24 @@
                     }, 500);
                 }, 1000);
             });
+
+            document.addEventListener('DOMContentLoaded', function() {
+                const links = document.querySelectorAll('a');
+                const loadingScreen = document.getElementById('loading-screen');
+
+                links.forEach(function(link) {
+                    link.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        loadingScreen.style.display = 'flex';
+                        loadingScreen.style.opacity = '1';
+                        const href = this.href;
+
+                        setTimeout(function() {
+                            window.location.href = href;
+                        }, 500);
+                    });
+                });
+            });
         </script>
 </body>
 
